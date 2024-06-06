@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="b183f31c-3268-4a2d-b6b0-a399229bafd6" activeEnvironment="Default" name="alumnos.wsdl" resourceRoot="" soapui-version="5.7.2" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="5749735d-58a7-493a-8656-23b0a8bcd7ed" wsaVersion="NONE" name="AlumnoPortSoap11" type="wsdl" bindingName="{http://www.soap.com/gen}AlumnoPortSoap11" soapVersion="1_1" anonymous="optional" definition="file:/C:/Users/carlos.corona/OneDrive%20-%20NEORIS/Desktop/crud-soap/alumnos.wsdl.xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\C:\Users\carlos.corona\OneDrive%20-%20NEORIS\Desktop\crud-soap\alumnos.wsdl.xml"><con:part><con:url>file:\C:\Users\carlos.corona\OneDrive%20-%20NEORIS\Desktop\crud-soap\alumnos.wsdl.xml</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.soap.com/gen" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://www.soap.com/gen" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.soap.com/gen">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://www.soap.com/gen" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="alumno">
+        <xs:sequence>
+          <xs:element name="id" type="xs:int"/>
+          <xs:element name="nombre" type="xs:string"/>
+          <xs:element name="edad" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="postAgregarAlumnoRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="alumno" type="tns:alumno"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="postAgregarAlumnoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="alumno" type="tns:alumno"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getMostrarAlumnosRequest">
+        <xs:complexType>
+          <xs:sequence></xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getMostrarAlumnosResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="alumnos" type="tns:alumno"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getBuscarAlumnoRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="nombre" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getBuscarAlumnoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="alumno" type="tns:alumno"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deleteAlumnoRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="id" type="xs:int"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deleteAlumnoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateAlumnoRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="alumno" type="tns:alumno"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateAlumnoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="alumno" type="tns:alumno"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="postAgregarAlumnoRequest">
+    <wsdl:part element="tns:postAgregarAlumnoRequest" name="postAgregarAlumnoRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateAlumnoRequest">
+    <wsdl:part element="tns:updateAlumnoRequest" name="updateAlumnoRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="postAgregarAlumnoResponse">
+    <wsdl:part element="tns:postAgregarAlumnoResponse" name="postAgregarAlumnoResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteAlumnoRequest">
+    <wsdl:part element="tns:deleteAlumnoRequest" name="deleteAlumnoRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMostrarAlumnosRequest">
+    <wsdl:part element="tns:getMostrarAlumnosRequest" name="getMostrarAlumnosRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBuscarAlumnoRequest">
+    <wsdl:part element="tns:getBuscarAlumnoRequest" name="getBuscarAlumnoRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateAlumnoResponse">
+    <wsdl:part element="tns:updateAlumnoResponse" name="updateAlumnoResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBuscarAlumnoResponse">
+    <wsdl:part element="tns:getBuscarAlumnoResponse" name="getBuscarAlumnoResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteAlumnoResponse">
+    <wsdl:part element="tns:deleteAlumnoResponse" name="deleteAlumnoResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMostrarAlumnosResponse">
+    <wsdl:part element="tns:getMostrarAlumnosResponse" name="getMostrarAlumnosResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="AlumnoPort">
+    <wsdl:operation name="postAgregarAlumno">
+      <wsdl:input message="tns:postAgregarAlumnoRequest" name="postAgregarAlumnoRequest"></wsdl:input>
+      <wsdl:output message="tns:postAgregarAlumnoResponse" name="postAgregarAlumnoResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateAlumno">
+      <wsdl:input message="tns:updateAlumnoRequest" name="updateAlumnoRequest"></wsdl:input>
+      <wsdl:output message="tns:updateAlumnoResponse" name="updateAlumnoResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteAlumno">
+      <wsdl:input message="tns:deleteAlumnoRequest" name="deleteAlumnoRequest"></wsdl:input>
+      <wsdl:output message="tns:deleteAlumnoResponse" name="deleteAlumnoResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMostrarAlumnos">
+      <wsdl:input message="tns:getMostrarAlumnosRequest" name="getMostrarAlumnosRequest"></wsdl:input>
+      <wsdl:output message="tns:getMostrarAlumnosResponse" name="getMostrarAlumnosResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBuscarAlumno">
+      <wsdl:input message="tns:getBuscarAlumnoRequest" name="getBuscarAlumnoRequest"></wsdl:input>
+      <wsdl:output message="tns:getBuscarAlumnoResponse" name="getBuscarAlumnoResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AlumnoPortSoap11" type="tns:AlumnoPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="postAgregarAlumno">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="postAgregarAlumnoRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="postAgregarAlumnoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateAlumno">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="updateAlumnoRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateAlumnoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteAlumno">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="deleteAlumnoRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="deleteAlumnoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMostrarAlumnos">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getMostrarAlumnosRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getMostrarAlumnosResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBuscarAlumno">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getBuscarAlumnoRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getBuscarAlumnoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AlumnoPortService">
+    <wsdl:port binding="tns:AlumnoPortSoap11" name="AlumnoPortSoap11">
+      <soap:address location="http://localhost:8090/ws"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8090/ws</con:endpoint></con:endpoints><con:operation id="ad20ed72-21dd-4892-934e-eb7e4a2e6cab" isOneWay="false" action="" name="deleteAlumno" bindingOperationName="deleteAlumno" type="Request-Response" outputName="deleteAlumnoResponse" inputName="deleteAlumnoRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="c14b8344-6323-4b98-a928-e7b9651cc283" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8090/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="http://www.soap.com/gen">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <gen:deleteAlumnoRequest>\r
+         <gen:id>?</gen:id>\r
+      </gen:deleteAlumnoRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.soap.com/gen/AlumnoPort/deleteAlumnoRequest"/></con:call></con:operation><con:operation id="4d999640-1e9a-4bdb-a500-27322d535e8d" isOneWay="false" action="" name="getBuscarAlumno" bindingOperationName="getBuscarAlumno" type="Request-Response" outputName="getBuscarAlumnoResponse" inputName="getBuscarAlumnoRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="9a1f5027-88b0-477a-9c9d-da02be784290" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8090/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="http://www.soap.com/gen">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <gen:getBuscarAlumnoRequest>\r
+         <gen:nombre>?</gen:nombre>\r
+      </gen:getBuscarAlumnoRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.soap.com/gen/AlumnoPort/getBuscarAlumnoRequest"/></con:call></con:operation><con:operation id="b0a2be84-16dd-41f4-8629-31f1ca2c43dc" isOneWay="false" action="" name="getMostrarAlumnos" bindingOperationName="getMostrarAlumnos" type="Request-Response" outputName="getMostrarAlumnosResponse" inputName="getMostrarAlumnosRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="66916abc-535a-4903-85fa-c49befdb9475" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8090/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="http://www.soap.com/gen">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <gen:getMostrarAlumnosRequest/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.soap.com/gen/AlumnoPort/getMostrarAlumnosRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="4a190bbc-51ab-4a7f-af32-b49f3ac2a6d4" isOneWay="false" action="" name="postAgregarAlumno" bindingOperationName="postAgregarAlumno" type="Request-Response" outputName="postAgregarAlumnoResponse" inputName="postAgregarAlumnoRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="0bc6f0a9-03a7-42d1-bdd4-eec90bc9415b" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8090/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="http://www.soap.com/gen">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <gen:postAgregarAlumnoRequest>\r
+         <gen:alumno>\r
+            <gen:id>?</gen:id>\r
+            <gen:nombre>?</gen:nombre>\r
+            <gen:edad>?</gen:edad>\r
+         </gen:alumno>\r
+      </gen:postAgregarAlumnoRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.soap.com/gen/AlumnoPort/postAgregarAlumnoRequest"/></con:call></con:operation><con:operation id="5732df20-76a6-4172-b550-8d4708cfde40" isOneWay="false" action="" name="updateAlumno" bindingOperationName="updateAlumno" type="Request-Response" outputName="updateAlumnoResponse" inputName="updateAlumnoRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="276fc296-b30f-4bf1-9199-b83de3e2f920" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8090/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="http://www.soap.com/gen">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <gen:updateAlumnoRequest>\r
+         <gen:alumno>\r
+            <gen:id>4</gen:id>\r
+            <gen:nombre>actualizado</gen:nombre>\r
+            <gen:edad>30</gen:edad>\r
+         </gen:alumno>\r
+      </gen:updateAlumnoRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.soap.com/gen/AlumnoPort/updateAlumnoRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

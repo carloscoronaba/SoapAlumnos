@@ -1,0 +1,5 @@
+Generar clases del xsd
+mvn clean
+mvn compile
+
+http://localhost:8090/ws/alumnos.wsdl
