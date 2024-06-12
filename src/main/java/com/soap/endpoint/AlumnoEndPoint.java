@@ -54,6 +54,8 @@ public class AlumnoEndPoint {
         return getBuscarAlumnoResponse;
     }
 
+
+
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getMostrarAlumnosRequest")
     @ResponsePayload
     public GetMostrarAlumnosResponse mostrarAlumnos(@RequestPayload GetMostrarAlumnosRequest getMostrarAlumnosRequest){
@@ -64,21 +66,52 @@ public class AlumnoEndPoint {
         return getMostrarAlumnosResponse;
     }
 
-    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "deleteAlumnoRequest")
+
+    /*@PayloadRoot(namespace = NAMESPACE_URI, localPart = "deleteAlumnoRequest")
     @ResponsePayload
     public DeleteAlumnoResponse eliminarAlumno(@RequestPayload DeleteAlumnoRequest deleteAlumnoRequest){
         DeleteAlumnoResponse deleteAlumnoResponse = new DeleteAlumnoResponse();
         alumnoRepository.deleteById(deleteAlumnoRequest.getId());
         deleteAlumnoResponse.setStatus("Alumno eliminado");
         return deleteAlumnoResponse;
+    }*/
+
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "deleteAlumnoRequest")
+    @ResponsePayload
+    public DeleteAlumnoResponse eliminarAlumno(@RequestPayload DeleteAlumnoRequest deleteAlumnoRequest){
+        DeleteAlumnoResponse deleteAlumnoResponse = new DeleteAlumnoResponse();
+
+        // Obtener el ID del alumno a eliminar desde la solicitud
+        int idAlumno = deleteAlumnoRequest.getId();
+
+        // Llamar al procedimiento almacenado para eliminar el alumno
+        alumnoRepository.eliminarAlumno(idAlumno);
+
+        // Configurar la respuesta
+        deleteAlumnoResponse.setStatus("Alumno eliminado correctamente");
+
+        return deleteAlumnoResponse;
     }
 
-    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "updateAlumnoRequest")
+
+    /*@PayloadRoot(namespace = NAMESPACE_URI, localPart = "updateAlumnoRequest")
     @ResponsePayload
     public UpdateAlumnoResponse editarAlumno(@RequestPayload UpdateAlumnoRequest updateAlumnoRequest){
         UpdateAlumnoResponse updateAlumnoResponse = new UpdateAlumnoResponse();
         AlumnoModel alumnoModel = alumnoConverter.convertAlumnoToAlumnoModel(updateAlumnoRequest.getAlumno());
         Alumno alumno = alumnoConverter.convertAlumnoModelToAlumno(alumnoRepository.save(alumnoModel));
+        updateAlumnoResponse.setAlumno(alumno);
+        return updateAlumnoResponse;
+    }*/
+
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "updateAlumnoRequest")
+    @ResponsePayload
+    public UpdateAlumnoResponse editarAlumno(@RequestPayload UpdateAlumnoRequest updateAlumnoRequest){
+        UpdateAlumnoResponse updateAlumnoResponse = new UpdateAlumnoResponse();
+        Alumno alumno = updateAlumnoRequest.getAlumno();
+
+        alumnoRepository.editarAlumno(alumno.getId(),alumno.getNombre(),alumno.getEdad());
+
         updateAlumnoResponse.setAlumno(alumno);
         return updateAlumnoResponse;
     }
