@@ -22,12 +22,25 @@ public class AlumnoEndPoint {
     @Autowired
     AlumnoConverter alumnoConverter;
 
-    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "postAgregarAlumnoRequest")
+    /*@PayloadRoot(namespace = NAMESPACE_URI, localPart = "postAgregarAlumnoRequest")
     @ResponsePayload
     public PostAgregarAlumnoResponse guardarAlumno(@RequestPayload PostAgregarAlumnoRequest postAgregarAlumnoRequest){
         PostAgregarAlumnoResponse postAgregarAlumnoResponse = new PostAgregarAlumnoResponse();
         AlumnoModel alumnoModel = alumnoConverter.convertAlumnoToAlumnoModel(postAgregarAlumnoRequest.getAlumno());
         Alumno alumno = alumnoConverter.convertAlumnoModelToAlumno(alumnoRepository.save(alumnoModel));
+        postAgregarAlumnoResponse.setAlumno(alumno);
+        return postAgregarAlumnoResponse;
+    }*/
+
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "postAgregarAlumnoRequest")
+    @ResponsePayload
+    public PostAgregarAlumnoResponse guardarAlumno(@RequestPayload PostAgregarAlumnoRequest postAgregarAlumnoRequest) {
+        PostAgregarAlumnoResponse postAgregarAlumnoResponse = new PostAgregarAlumnoResponse();
+        Alumno alumno = postAgregarAlumnoRequest.getAlumno();
+
+        // Llamada al procedimiento almacenado agregar_alumno
+        alumnoRepository.agregarAlumno(alumno.getNombre(), alumno.getEdad());
+
         postAgregarAlumnoResponse.setAlumno(alumno);
         return postAgregarAlumnoResponse;
     }
